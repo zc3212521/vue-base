@@ -1,0 +1,54 @@
+const path = require('path')
+
+const resolve = dir => {
+  return path.join(__dirname, dir)
+}
+
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const isPro = process.env.NODE_ENV === 'production'
+
+module.exports = {
+  devServer: {
+
+    // string | Object 代理设置
+    proxy: {
+      // 接口是 '/repos' 开头的才用代理
+      '/repos': {
+        target: 'https://api.github.com', // 目标地址
+        changeOrigin: true, // 是否改变源地址
+        hot: true
+        // pathRewrite: {'^/api': ''}
+      }
+    }
+  },
+  chainWebpack: config => {
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('@lib', resolve('src/common'))
+      .set('@com', resolve('src/components'))
+      .set('@img', resolve('src/assets/images'))
+      .set('@ser', resolve('src/services'))
+  },
+  configureWebpack: config => {
+    if (isPro) {
+      return {
+        plugins: [
+          new CompressionWebpackPlugin({
+            // 目标文件名称。[path] 被替换为原始文件的路径和 [query] 查询
+            asset: '[path].gz[query]',
+            // 使用 gzip 压缩
+            algorithm: 'gzip',
+            // 处理与此正则相匹配的所有文件
+            test: new RegExp(
+              '\\.(js|css)$'
+            ),
+            // 只处理大于此大小的文件
+            threshold: 10240,
+            // 最小压缩比达到 0.8 时才会被压缩
+            minRatio: 0.8
+          })
+        ]
+      }
+    }
+  }
+}

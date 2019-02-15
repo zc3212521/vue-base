@@ -17,7 +17,7 @@ module.exports = {
       // 接口是 '/repos' 开头的才用代理
       '/repos': {
         target: 'https://api.github.com', // 目标地址
-        changeOrigin: true, // 是否改变源地址
+        changeOrigin: true // 是否改变源地址
         // pathRewrite: {'^/api': ''}
       }
     }
@@ -29,8 +29,6 @@ module.exports = {
       .set('@com', resolve('src/components'))
       .set('@img', resolve('src/assets/images'))
       .set('@ser', resolve('src/services'))
-
-
   },
   configureWebpack: config => {
     if (isPro) {

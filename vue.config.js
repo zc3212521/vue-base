@@ -12,6 +12,10 @@ module.exports = {
   devServer: {
     hot: true,
     host: '0.0.0.0',
+    overlay: {
+      warnings: true,
+      errors: true
+    },
     // string | Object 代理设置
     proxy: {
       // 接口是 '/repos' 开头的才用代理

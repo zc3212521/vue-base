@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/business/HelloWorld.vue'
 import { getTestData } from '@/services/moduleA.js'
 
 export default {

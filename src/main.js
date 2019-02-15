@@ -5,7 +5,6 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-
 if (process.env.NODE_ENV !== 'production') {
   Vue.config.performance = true
 }

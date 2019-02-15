@@ -1,15 +1,12 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="~@img/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App111"/>
-    <div class="img">
-
-    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="img"></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import { getTestData } from '@/services/moduleA.js'
 
@@ -20,12 +17,8 @@ export default {
   },
   mounted () {
     getTestData().then(data => console.log('data', data))
-    this.doSomeThing()
   },
   methods: {
-    doSomeThing () {
-      console.log(111)
-    }
   }
 }
 </script>

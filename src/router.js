@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue')
-const About = () => import(/* webpackChunkName: "about" */ './views/About.vue')
+const Home = () => import(/* webpackChunkName: "home" */ './pages/home/Home.vue')
+const About = () => import(/* webpackChunkName: "about" */ './pages/about/About.vue')
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {

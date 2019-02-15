@@ -8,15 +8,16 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const isPro = process.env.NODE_ENV === 'production'
 
 module.exports = {
+  publicPath: './',
   devServer: {
-
+    hot: true,
+    host: '0.0.0.0',
     // string | Object 代理设置
     proxy: {
       // 接口是 '/repos' 开头的才用代理
       '/repos': {
         target: 'https://api.github.com', // 目标地址
         changeOrigin: true, // 是否改变源地址
-        hot: true
         // pathRewrite: {'^/api': ''}
       }
     }
@@ -28,14 +29,14 @@ module.exports = {
       .set('@com', resolve('src/components'))
       .set('@img', resolve('src/assets/images'))
       .set('@ser', resolve('src/services'))
+
+
   },
   configureWebpack: config => {
     if (isPro) {
       return {
         plugins: [
           new CompressionWebpackPlugin({
-            // 目标文件名称。[path] 被替换为原始文件的路径和 [query] 查询
-            asset: '[path].gz[query]',
             // 使用 gzip 压缩
             algorithm: 'gzip',
             // 处理与此正则相匹配的所有文件

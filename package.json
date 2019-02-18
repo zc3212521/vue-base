@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "mock": "vue-cli-service serve --mode mock"
   },
   "husky": {
     "hooks": {
@@ -14,6 +15,7 @@
     }
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
@@ -35,6 +37,7 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.1.4",
+    "mockjs": "^1.0.1-beta3",
     "vue-template-compiler": "^2.5.21"
   }
 }

@@ -1,6 +1,5 @@
 import Http from './http'
-
-const baseUrl = 'https://api.github.com'
+import { baseUrl } from '@/services/commom'
 
 // 获取测试数据
 export const getTestData = () => {

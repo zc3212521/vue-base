@@ -10,7 +10,6 @@ const isPro = process.env.NODE_ENV === 'production'
 module.exports = {
   publicPath: './',
   devServer: {
-    hot: true,
     host: '0.0.0.0',
     overlay: {
       warnings: true,
@@ -23,13 +22,14 @@ module.exports = {
         target: 'https://api.github.com', // 目标地址
         changeOrigin: true // 是否改变源地址
         // pathRewrite: {'^/api': ''}
-      }
-    }
+      },
+    },
+    hot: true
   },
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('@lib', resolve('src/common'))
+      .set('@utils', resolve('src/utils'))
       .set('@com', resolve('src/components'))
       .set('@img', resolve('src/assets/images'))
       .set('@ser', resolve('src/services'))

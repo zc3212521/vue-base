@@ -1,34 +1,56 @@
 # vue-base
 
-## Project setup
+## 命令
+
+### 依赖安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 编译开发环境代码，开启热替换服务器
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 编译正式环境代码
 ```
 npm run build
 ```
 
-### Run your tests
+### 运行接口mock
 ```
-npm run test
+npm run mock
 ```
 
-### Lints and fixes files
+### 运行代码修复跟检查
 ```
 npm run lint
 ```
 
-### Run your unit tests
+### 运行单元测试
 ```
-npm run test:unit
+npm run test
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 目录结构
+
+```
+src
+├─assets  // 资源文件
+│  ├─font
+│  ├─images
+│  ├─js
+│  └─style
+├─components // 共用组件
+│  ├─business
+│  └─common
+├─http // 请求相关
+├─mock // mock后端数据
+├─pages
+│  ├─about
+│  │  └─components
+│  └─home
+├─store // 状态管理
+│  └─modules
+└─utils // 工具类
+```

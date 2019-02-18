@@ -22,7 +22,7 @@ module.exports = {
         target: 'https://api.github.com', // 目标地址
         changeOrigin: true // 是否改变源地址
         // pathRewrite: {'^/api': ''}
-      },
+      }
     },
     hot: true
   },

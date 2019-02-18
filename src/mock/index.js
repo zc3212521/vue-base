@@ -1,4 +1,4 @@
-import { baseUrl } from '@/services/commom'
+import { baseUrl } from '@/http/commom'
 
 let Mock = require('mockjs')
 

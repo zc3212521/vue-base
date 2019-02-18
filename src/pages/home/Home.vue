@@ -8,7 +8,7 @@
 
 <script>
 import HelloWorld from '@/components/business/HelloWorld.vue'
-import { getTestData } from '@/services/moduleA.js'
+import { getTestData } from '@/http/moduleA.js'
 
 export default {
   name: 'home',
@@ -16,7 +16,7 @@ export default {
     HelloWorld
   },
   mounted () {
-    getTestData().then(data => console.log('data', data))
+    getTestData().then(res => console.log('data', res.data))
   },
   methods: {
   }

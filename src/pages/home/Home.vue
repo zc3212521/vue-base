@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="~@img/logo.png">
+    <img alt="Vue logo" src="~@img/logo.jpg">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div class="img"></div>
   </div>
@@ -25,10 +25,10 @@ export default {
 
 <style lang="css" scoped>
   .img {
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-    background: url("~@img/logo.png");
-    background-size: 100px;
+    /*margin: 0 auto;*/
+    width: 500px;
+    height: 200px;
+    background: url("~@img/logo.jpg");
+    background-size: 500px;
   }
 </style>

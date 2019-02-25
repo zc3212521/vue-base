@@ -24,7 +24,7 @@ export default {
   },
   methods: {
   },
-  destroyed() {
+  destroyed () {
     console.log('destroyed')
   }
 }

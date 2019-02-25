@@ -11,7 +11,7 @@ export default {
   components: {
     myOwn
   },
-  destroyed() {
+  destroyed () {
     console.log('destroyed')
   }
 }

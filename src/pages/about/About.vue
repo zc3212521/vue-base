@@ -10,6 +10,9 @@ import myOwn from './components/myOwn'
 export default {
   components: {
     myOwn
+  },
+  destroyed() {
+    console.log('destroyed')
   }
 }
 

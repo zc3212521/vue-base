@@ -7,7 +7,6 @@ process.env.NODE_ENV === 'mock' && require('./mock/index.js')
 
 Vue.config.productionTip = false
 
-
 if (process.env.NODE_ENV !== 'production') {
   Vue.config.performance = true
 };

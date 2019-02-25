@@ -3,6 +3,9 @@
     <img alt="Vue logo" src="~@img/logo.jpg">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div class="img"></div>
+    <transition>
+      <div>112233</div>
+    </transition>
   </div>
 </template>
 
@@ -16,9 +19,13 @@ export default {
     HelloWorld
   },
   mounted () {
+    console.log('index init')
     getTestData().then(res => console.log('data', res.data))
   },
   methods: {
+  },
+  destroyed() {
+    console.log('destroyed')
   }
 }
 </script>

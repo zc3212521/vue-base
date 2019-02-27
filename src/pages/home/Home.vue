@@ -19,7 +19,6 @@ export default {
     HelloWorld
   },
   mounted () {
-    console.log('index init')
     getTestData().then(res => console.log('data', res.data))
   },
   methods: {

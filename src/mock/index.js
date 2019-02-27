@@ -1,8 +1,8 @@
-import { baseUrl } from '@/http/commom'
+import { baseURL } from '@/base/http'
 
 let Mock = require('mockjs')
 
-Mock.mock(`${baseUrl}/repos/octokit/octokit.rb`, 'get', {
+Mock.mock(`${baseURL}/repos/octokit/octokit.rb`, 'get', {
   'name|1-10': '★',
   'git_url': '@url()'
 })

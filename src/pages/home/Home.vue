@@ -23,9 +23,6 @@ export default {
     getTestData().then(res => console.log('data', res.data))
   },
   methods: {
-  },
-  destroyed () {
-    console.log('destroyed')
   }
 }
 </script>

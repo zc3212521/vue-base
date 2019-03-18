@@ -1,10 +1,20 @@
-import { baseURL } from '@/base/http'
+import { baseURL } from '@/base/axios'
+import api from '@/http/api'
 
 let Mock = require('mockjs')
 
-Mock.mock(`${baseURL}/repos/octokit/octokit.rb`, 'get', {
-  'name|1-10': '★',
-  'git_url': '@url()'
+mock(api.login, function (opt) {
+  let queryBody = JSON.parse(opt.body)
+  return {
+    'tenantName': queryBody.username,
+    'sessionId': '111'
+  }
 })
 
-console.log('hello')
+mock(api.test, {
+  res: 222
+})
+
+function mock (url, template) {
+  return Mock.mock(baseURL + url, template)
+}

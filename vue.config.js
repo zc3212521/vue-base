@@ -17,14 +17,15 @@ module.exports = {
     },
     // string | Object 代理设置
     proxy: {
-      // 接口是 '/repos' 开头的才用代理
-      '/repos': {
-        target: 'https://api.github.com', // 目标地址
-        changeOrigin: true // 是否改变源地址
-        // pathRewrite: {'^/api': ''}
+      // 接口是 '/pomp' 开头的才用代理
+      '/pompapi': {
+        target: 'http://192.168.2.14:28080/hsc-pomp-bff', // 目标地址
+        changeOrigin: true, // 是否改变源地址
+        pathRewrite: { '^/pompapi': '' }
       }
     },
-    hot: true
+    hot: true,
+    port: 8080 // 端口修改
   },
   chainWebpack: config => {
     config.resolve.alias
@@ -33,6 +34,13 @@ module.exports = {
       .set('@com', resolve('src/components'))
       .set('@img', resolve('src/assets/images'))
       .set('@ser', resolve('src/services'))
+  },
+  css: {
+    loaderOptions: { // 向 CSS 相关的 loader 传递选项
+      less: {
+        javascriptEnabled: true
+      }
+    }
   },
   configureWebpack: config => {
     if (isPro) {

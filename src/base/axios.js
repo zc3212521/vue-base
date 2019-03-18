@@ -39,7 +39,9 @@ axios.interceptors.request.use(function (response) {
 
 // respone拦截器
 axios.interceptors.response.use(function (response) {
-  let originCode = response.status.code
+
+}, function (error) {
+  let originCode = error.response.status
   switch (originCode) {
     case 400:
       window.vm.$message.error('请求出错，请刷新重试')
@@ -61,51 +63,9 @@ axios.interceptors.response.use(function (response) {
     case 500:
       window.vm.$message.error('服务器出现错误，请联系开发人员')
       return
-  }
-
-  let code = response.data.code
-  switch (code) {
-    case 10001:
-      window.vm.$message.error('请求出错，请刷新重试') // 400
-      return
-    case 10002:
-      window.vm.$message.error('暂无权限，请重新登录') // 401
-      window.vm.$router.push({ name: 'login' })
-      return
-    case 10003:
-      window.vm.$message.error('暂无权限，请重新登录') // 403
-      window.vm.$router.push({ name: 'login' })
-      return
-    case 10004:
-      window.vm.$message.error('您访问的资源不存在，请核实后重试') // 404
-      return
-    case 10005:
-      window.vm.$message.error('请求方法错误，请联系开发人员') // 405
-      return
-    case 10006:
-      window.vm.$message.error('服务器出现错误，请联系开发人员') // 500
-      return
-    case 10061:
-      window.vm.$message.error('CODE_HTTP_CONNECT_EXCEPTION')
-      return
-    case 10062:
-      window.vm.$message.error('连接超时')
-      return
-    case 10063:
-      window.vm.$message.error('CODE_HTTP_IO_EXCEPTION')
-      return
-    case 10064:
-      window.vm.$message.error('CODE_HTTP_PROTOCOL_EXCEPTION')
-      return
-    case 11000:
-      window.vm.$message.error('CODE_HTTP_UNKNOW_EXCEPTION')
-      return
     default:
-      return response
+      return Promise.reject(error)
   }
-}, function (error) {
-  window.vm.$message.error('出现错误，参考: ' + JSON.stringify(error))
-  return Promise.reject(error)
 })
 
 export default axios

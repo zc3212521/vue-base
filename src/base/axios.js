@@ -39,7 +39,7 @@ axios.interceptors.request.use(function (response) {
 
 // respone拦截器
 axios.interceptors.response.use(function (response) {
-
+  return response
 }, function (error) {
   let originCode = error.response.status
   switch (originCode) {

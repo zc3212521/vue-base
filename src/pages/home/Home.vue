@@ -31,9 +31,9 @@ export default {
   },
   methods: {
     draw (img) {
-      this.ctx.drawImage(img, 0, 0, 2869, 1920, 0, 0, 1200, 800)
+      // this.ctx.drawImage(img, 0, 0, 2869, 1920, 0, 0, 1200, 800)
       for (let i = 1; i <= 3; i++) {
-        // this.ctx.globalAlpha = 0.2 * i
+        this.ctx.globalAlpha = 0.3 * i
         this.ctx.drawImage(img, 80 * i - 80, 0, 60, 1920, 60 * i - 60, 0, 60, 800)
         this.ctx.drawImage(img, 2869 - (80 * i), 0, 60, 1920, 1200 - (60 * i), 0, 60, 800)
       }

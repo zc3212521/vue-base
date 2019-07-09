@@ -1,11 +1,9 @@
 <template>
   <div class="home">
+    <canvas id="canvas" width="1200" height="800"></canvas>
     <img alt="Vue logo" src="~@img/logo.jpg">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div class="img"></div>
-    <transition>
-      <div>112233</div>
-    </transition>
   </div>
 </template>
 
@@ -18,10 +16,28 @@ export default {
   components: {
     HelloWorld
   },
+  data () {
+    return {
+      ctx: null
+    }
+  },
   mounted () {
-    // getTestData().then(res => console.log('data', res.data))
+    this.ctx = document.getElementById('canvas').getContext('2d')
+    let img = new Image()
+    img.src = '/2.jpg'
+    img.onload = () => {
+      this.draw(img)
+    }
   },
   methods: {
+    draw (img) {
+      this.ctx.drawImage(img, 0, 0, 2869, 1920, 0, 0, 1200, 800)
+      for (let i = 1; i <= 3; i++) {
+        // this.ctx.globalAlpha = 0.2 * i
+        this.ctx.drawImage(img, 80 * i - 80, 0, 60, 1920, 60 * i - 60, 0, 60, 800)
+        this.ctx.drawImage(img, 2869 - (80 * i), 0, 60, 1920, 1200 - (60 * i), 0, 60, 800)
+      }
+    }
   }
 }
 </script>
@@ -33,5 +49,10 @@ export default {
     height: 200px;
     background: url("~@img/logo.jpg");
     background-size: 500px;
+  }
+  #canvas {
+    background-color: #000;
+    display: block;
+    margin: 10px auto;
   }
 </style>

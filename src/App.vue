@@ -3,9 +3,6 @@
     <div id="nav">
       <router-link to="/">Home111</router-link> |
       <router-link to="/about">About</router-link>
-      <div id="haha">
-        <a href="http://127.0.0.1:8080/#/population/person/main">12344</a>
-      </div>
     </div>
     <router-view/>
   </div>

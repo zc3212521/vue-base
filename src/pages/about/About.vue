@@ -1,16 +1,26 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <my-own></my-own>
+    <router-link to="/home">Go to home</router-link>
   </div>
 </template>
 
 <script>
-import myOwn from './components/myOwn'
+import { mapState } from 'vuex'
 export default {
-  components: {
-    myOwn
+  name: 'about',
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      name: state => state.name
+    })
   }
 }
-
 </script>
+
+<style>
+  .about {
+    background-color: orangered;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

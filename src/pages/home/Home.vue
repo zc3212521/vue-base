@@ -46,11 +46,11 @@ export default {
 
       let blurR = 3
       let totalNum = (2 * blurR + 1) * (2 * blurR + 1)
-      for(let i = blurR; i < canvasb.height - blurR; i ++) {
-        for(let j = blurR; j < canvasb.width - blurR; j++) {
-          var totalr = 0, totalg = 0, totalb = 0
-          for(let dx = -blurR; dx <= blurR; dx++) {
-            for(let dy = -blurR; dy <= blurR; dy++) {
+      for (let i = blurR; i < canvasb.height - blurR; i++) {
+        for (let j = blurR; j < canvasb.width - blurR; j++) {
+          var totalr = 0; var totalg = 0; var totalb = 0
+          for (let dx = -blurR; dx <= blurR; dx++) {
+            for (let dy = -blurR; dy <= blurR; dy++) {
               let x = i + dx
               let y = j + dy
               let p1 = x * canvasb.width + y

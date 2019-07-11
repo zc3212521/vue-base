@@ -51,12 +51,12 @@ export default {
           var totalr = 0, totalg = 0, totalb = 0
           for(let dx = -blurR; dx <= blurR; dx++) {
             for(let dy = -blurR; dy <= blurR; dy++) {
-              let x = i+ dx
+              let x = i + dx
               let y = j + dy
-              var p = x * canvasb.width + y
-              totalr += tmpPixelData[p * 4 + 0]
-              totalg += tmpPixelData[p * 4 + 1]
-              totalb += tmpPixelData[p * 4 + 2]
+              let p1 = x * canvasb.width + y
+              totalr += tmpPixelData[p1 * 4 + 0]
+              totalg += tmpPixelData[p1 * 4 + 1]
+              totalb += tmpPixelData[p1 * 4 + 2]
             }
           }
           let p = i * canvasb.width + j
